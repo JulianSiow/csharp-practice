@@ -342,13 +342,33 @@ namespace Practice
             }
             return sequence;
         }
-        static void Main()
-        {
-            int[] arr = new int[6] { 9, 7, 3, 9, 10, 11 };
-            Console.WriteLine(LetterSequence("or"));
-        }
 
         //Longest strictly increasing sequence
-
+        static int LongestStrictlyIncreasing(int[] arr)
+        {
+            int longest = 0;
+            int currentCount = 0;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                if (arr[i + 1] > arr[i])
+                {
+                    currentCount++;
+                }
+                else
+                {
+                    currentCount = 0;
+                }
+                if (currentCount > longest)
+                {
+                    longest = currentCount;
+                }
+            }
+            return longest;
+        }
+        static void Main()
+        {
+            int[] arr = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+            Console.WriteLine(LongestStrictlyIncreasing(arr));
+        }
     }
 }
