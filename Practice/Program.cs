@@ -415,10 +415,93 @@ namespace Practice
 
             return sum;
         }
+
+        //Draw triangle
+        static void DrawTriangle()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 10; j > i; j--)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 10; k >= 10 - i; k--)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        //To the power of
+        static int PowerOf(int num, int power)
+        {
+            int raised = 1;
+            if (power == 0)
+            {
+                return 1;
+            }
+            for (int i = 1; power > 0 ? i <= power : i <= power * (-1); i++)
+            {
+                raised *= num;
+            }
+            return raised > 0 ? raised : 1/raised;
+        }
+
+        //letter balance
+        static bool LetterBalance(string letters)
+        {
+            bool isBalanced;
+            for (int i = 0; i < letters.Length / 2; i++)
+            {
+                isBalanced = false;
+                for (int j = letters.Length - 1; j >= letters.Length / 2; j--)
+                {
+                    if (letters[i] == letters[j])
+                    {
+                        isBalanced = true;
+                    }
+                }
+                if (!isBalanced)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //Replace two words
+        static string ReplaceWords(string words, char split)
+        {
+            int splitIndex = 0;
+            string firstWord = "";
+            string secWord = "";
+            for(int i = 0; i < words.Length; i++)
+            {
+                if (words[i] == split)
+                {
+                    splitIndex = i;
+                }
+            }
+            for(int i = 0; i < splitIndex; i++)
+            {
+                firstWord += words[i];
+            }
+            for(int i = splitIndex + 1; i < words.Length; i++)
+            {
+                secWord += words[i];
+            }
+            return $"{secWord}{split}{firstWord}";
+        }
+
+        //Digital Root
+        //??????????????????????????????????????????????
+
+        
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(SumDouble(arr));
+            Console.WriteLine(ReplaceWords("dog_octopus", '_'));
         }
     }
 }
