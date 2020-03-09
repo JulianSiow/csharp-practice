@@ -515,10 +515,28 @@ namespace Practice
             }
             return open == close;
         }
+
+        //Add Seperator
+        static string AddSeperator(string word, char sep)
+        {
+            string newWord = string.Empty;
+            for (int i=0; i<word.Length; i++)
+            {
+                if (i == word.Length - 1)
+                {
+                    newWord += word[i];
+                }
+                else
+                {
+                    newWord += $"{word[i]}{sep}";
+                }
+            }
+            return newWord;
+        }
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(CheckBrackets("((()))("));
+            Console.WriteLine(AddSeperator("ABCD", '^'));
         }
     }
 }
