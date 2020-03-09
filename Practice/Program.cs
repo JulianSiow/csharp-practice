@@ -365,10 +365,60 @@ namespace Practice
             }
             return longest;
         }
+
+        //Digit Sum
+        static int DigitSum(int num)
+        {
+            int sum = 0;
+            int x = 10;
+            int y = 1;
+            
+            while(num / y >= 1)
+            {
+                sum += (num % x / y);
+                x *= 10;
+                y *= 10;
+            }
+
+            return sum;
+        }
+
+        //Sum and Average
+        static string SumAndAverage(int lower, int higher)
+        {
+            int range = 0;
+            int sum = 0;
+            double avg = 0;
+
+            for (int i = lower; i <= higher; i++)
+            {
+                sum += i;
+                range++;
+            }
+
+            avg += sum / (double)range;
+            return $"Sum: {sum}, Average: {avg}";
+        }
+
+        //Sum Double only
+        static double SumDouble(object[] arr)
+        {
+            double sum = 0.0;
+
+            foreach(object obj in arr)
+            {
+                if (obj is double)
+                {
+                    sum += (double)obj;
+                }
+            }
+
+            return sum;
+        }
         static void Main()
         {
-            int[] arr = new int[] { 2, 3, 4, 5, 6, 7, 8 };
-            Console.WriteLine(LongestStrictlyIncreasing(arr));
+            object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
+            Console.WriteLine(SumDouble(arr));
         }
     }
 }
