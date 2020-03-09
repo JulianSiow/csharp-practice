@@ -497,11 +497,28 @@ namespace Practice
         //Digital Root
         //??????????????????????????????????????????????
 
-        
+        //Check Brackets Sequence
+        static bool CheckBrackets(string sequence)
+        {
+            int open = 0;
+            int close = 0;
+            for (int i = 0; i < sequence.Length; i++)
+            {
+                if (sequence[i] == '(')
+                {
+                    open++;
+                }
+                else if (sequence[i] == ')')
+                {
+                    close++;
+                }
+            }
+            return open == close;
+        }
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(ReplaceWords("dog_octopus", '_'));
+            Console.WriteLine(CheckBrackets("((()))("));
         }
     }
 }
