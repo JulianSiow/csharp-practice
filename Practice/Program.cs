@@ -657,11 +657,22 @@ namespace Practice
         }
 
         //How many occurences
-
+        static int HowManyOccurences(string phrase, string word)
+        {
+            int numberOfOccurences = 0;
+            for (int i = 0; i < phrase.Length; i++)
+            {
+                if (i < phrase.Length - word.Length && phrase.Substring(i, word.Length) == word)
+                {
+                    numberOfOccurences++;
+                }
+            }
+            return numberOfOccurences;
+        }
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(ReverseOrder("C B. A,"));
+            Console.WriteLine(HowManyOccurences("he is a good boy, he would never do that!", "he"));
         }
     }
 }
