@@ -591,10 +591,77 @@ namespace Practice
             }
             return uppercaseStr;
         }
+
+        //Mix two strings
+        static string MixStrings(string str1, string str2)
+        {
+            string mixedStr = string.Empty;
+            for(int i = 0; i < str1.Length || i < str2.Length; i++)
+            {
+                if (i >= str1.Length)
+                {
+                    mixedStr += str2[i];
+                }
+                else if (i >= str2.Length)
+                {
+                    mixedStr += str1[i];
+                }
+                else
+                {
+                    mixedStr += str1[i];
+                    mixedStr += str2[i];
+                }
+            }
+            return mixedStr;
+        }
+
+        //Number of words
+        static int NumberOfWords(string sentance)
+        {
+            int wordCount = 1;
+            foreach (char letter in sentance)
+            {
+                if (letter == ' ')
+                {
+                    wordCount++;
+                }
+            }
+            return wordCount;
+        }
+
+        //Reverse word order
+        static string ReverseOrder(string sentance)
+        {
+            int lastSpaceIndex = sentance.Length - 1;
+            string reversedSentance = string.Empty;
+            for (int i = sentance.Length - 1; i >= 0; i--)
+            {
+                if (char.IsWhiteSpace(sentance[i]))
+                {
+                    for (int j = i + 1; j <= lastSpaceIndex; j++)
+                    {
+                        reversedSentance += sentance[j];
+                    }
+                    lastSpaceIndex = i;
+                    reversedSentance += ' ';
+                }
+                if (i == 0)
+                {
+                    for (int j = 0; j < lastSpaceIndex; j++)
+                    {
+                        reversedSentance += sentance[j];
+                    }
+                }
+            }
+            return reversedSentance;
+        }
+
+        //How many occurences
+
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(MakeUppercase("qwerty"));
+            Console.WriteLine(ReverseOrder("C B. A,"));
         }
     }
 }
