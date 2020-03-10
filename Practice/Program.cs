@@ -699,10 +699,16 @@ namespace Practice
         {
             return double.IsNegative(num) ? Math.Pow(num, 2) : Math.Sqrt(num);
         }
+
+        //Replace y with x
+        static string ReplaceYWithX(string str)
+        {
+            return str.Replace('y', 'x');
+        }
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(NegativeOrPositive(6.25));
+            Console.WriteLine(ReplaceYWithX("yellow"));
         }
     }
 }
