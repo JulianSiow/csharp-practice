@@ -670,25 +670,25 @@ namespace Practice
             return numberOfOccurences;
         }
         //Compress string
-        //================================================ INCOMPLETE ===============================================================
         static string CompressString(string str)
         {
-            string compressedString = string.Empty;
+            string compressedString = char.ToString(str[0]);
             char currentChar = str[0];
             int numberOfChar = 0;
             for (int i = 0; i<str.Length; i++)
             {
-                if (currentChar != str[i])
-                {
-                    compressedString += currentChar;
-                    currentChar = str[i];
-                    compressedString += currentChar;
-                    numberOfChar = 0;
-                }
-                else
+                if (currentChar == str[i])
                 {
                     numberOfChar++;
                 }
+                else if (currentChar != str[i])
+                {
+                    currentChar = str[i];
+                    compressedString += numberOfChar;
+                    compressedString += currentChar;
+                    numberOfChar = 1;
+                }
+
             }
             compressedString += numberOfChar;
             return compressedString;
@@ -696,7 +696,7 @@ namespace Practice
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(CompressString("p555ppp7www"));
+            Console.WriteLine(CompressString("$999j*#jjjfYyyy"));
         }
     }
 }
