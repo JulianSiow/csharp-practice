@@ -533,10 +533,68 @@ namespace Practice
             }
             return newWord;
         }
+
+        //Is Palindrome
+        static bool IsPalindrome(string word)
+        {
+            string reversedWord = string.Empty;
+            for (int i = word.Length - 1; i >= 0; i--)
+            {
+                reversedWord += word[i];
+            }
+            return reversedWord == word;
+        }
+
+        static int LengthOfAString(string word)
+        {
+            int wordLength = 0;
+            foreach(char letter in word)
+            {
+                wordLength++;
+            }
+            return wordLength;
+        }
+
+        //Reverse a string
+        static string ReverseString(string word)
+        {
+            string reversedWord = string.Empty;
+            for (int i = word.Length - 1; i >= 0; i--)
+            {
+                reversedWord += word[i];
+            }
+            return reversedWord;
+        }
+
+        //Make odd letters uppercase
+        static string MakeUppercase(string str)
+        {
+            int letterIndex = 0;
+            string uppercaseStr = string.Empty;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] >= 'a' && str[i] <= 'z' && letterIndex % 2 == 0)
+                {
+                    letterIndex++;
+                    uppercaseStr += (char)(str[i] - 32);
+                }
+                else if (str[i] != ' ')
+                {
+                    letterIndex++;
+                    uppercaseStr += str[i];
+                }
+                else
+                {
+                    letterIndex = 0;
+                    uppercaseStr += str[i];
+                }
+            }
+            return uppercaseStr;
+        }
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(AddSeperator("ABCD", '^'));
+            Console.WriteLine(MakeUppercase("qwerty"));
         }
     }
 }
