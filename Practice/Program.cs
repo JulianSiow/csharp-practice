@@ -693,10 +693,16 @@ namespace Practice
             compressedString += numberOfChar;
             return compressedString;
         }
+
+        //Negative or positive
+        static double NegativeOrPositive(double num)
+        {
+            return double.IsNegative(num) ? Math.Pow(num, 2) : Math.Sqrt(num);
+        }
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(CompressString("$999j*#jjjfYyyy"));
+            Console.WriteLine(NegativeOrPositive(6.25));
         }
     }
 }
