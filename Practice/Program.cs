@@ -705,10 +705,46 @@ namespace Practice
         {
             return str.Replace('y', 'x');
         }
+
+        //To lower or to upper
+        static string LowerToUpper(string str)
+        {
+            int startIndex = 0;
+            bool capitalizing = true;
+            string capStr = string.Empty;
+            for(int i = 0; i<str.Length; i++)
+            {
+                if (str[i] == ' ' && capitalizing || i == str.Length - 1 && capitalizing)
+                {
+                    string newWord = str.Substring(startIndex + 1, i - startIndex).ToUpper();
+                    Console.WriteLine($"{startIndex}, {i}");
+                    capStr += newWord;
+                    startIndex = i;
+                    capitalizing = false;
+                }
+                else if (str[i] == ' ' && !capitalizing || i == str.Length  - 1 && !capitalizing)
+                {
+                    string newWord = str.Substring(startIndex + 1, i - startIndex);
+                    capStr += newWord;
+                    startIndex = i;
+                    capitalizing = true;
+                }
+            }
+            return capStr;
+
+/*            string[] words = word.Split(' ');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = i % 2 == 0 ? words[i].ToUpper() : words[i].ToLower();
+            }
+
+            return String.Join(" ", words);*/
+        }
         static void Main()
         {
             object[] arr = new object[] { 8.9, "dog", 6, 'c', null, 15.99, 745, true };
-            Console.WriteLine(ReplaceYWithX("yellow"));
+            Console.WriteLine(LowerToUpper("this is it"));
         }
     }
 }
